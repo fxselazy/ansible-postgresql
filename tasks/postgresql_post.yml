@@ -1,4 +1,10 @@
 ---
+- name: Ensure PostgreSQL is start and running
+  ansible.builtin.systemd:
+    name: postgresql
+    state: started
+    enabled: true
+    
 - name: Copy PostgreSQL configuration file
   template:
     src: "{{ postgresql_host_config_file_path }}"
